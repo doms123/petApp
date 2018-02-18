@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Registered Pets
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <form action="" class="searchBar">
+        <ion-searchbar
+            [showCancelButton]="shouldShowCancel"
+            (ionInput)="onSearch($event)"
+            (ionCancel)="onCancel($event)"
+            [debounce]="700"
+            placeholder="Search Name or Breed"
+        >
+        </ion-searchbar>
+    </form>
+    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>
+    <div *ngIf="pageLoaded">
+        <p *ngIf="pets?.length == 0" class="noPetResult">No registered pet yet.</p>
+        <div *ngIf="pets?.length">
+            <ion-card *ngFor="let pet of pets">
+                <img [src]="pet?.image != '' && pet?.image != null ? pet?.image : 'assets/images/icon.png'" [class.noImage]="pet?.image == '' || pet?.image == null"/>
+                <ion-card-content>
+                    <ion-card-title>{{pet.name}}</ion-card-title>
+                    <div>
+                        <span class="bold">Breed:</span>
+                        <span>{{pet.breed}}</span>
+                    </div>
+                    <div>
+                        <span class="bold">Age:</span>
+                        <span>{{pet.age}}</span>
+                    </div>
+                    <button ion-button type="submit" class="btnDetails" (click)="registeredPetDetails(pet)">More Details</button>
+                    <span class="datePosted">Date added: {{pet.datePosted | date:'mediumDate'}}</span>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
+  </ion-content>
+  
+  

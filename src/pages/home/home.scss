@@ -1,0 +1,40 @@
+page-home {
+    ion-slide {
+        background: #488aff;
+    }
+
+    ion-slide h4,
+    ion-slide p {
+        padding: 0 20px;
+        color: #fff !important;
+    }
+
+    ion-slide h4 {
+        margin-top: 0;
+    }
+
+    ion-slide h2 {
+        margin-bottom: 0;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #fff !important;
+    }
+
+    .pageLoader {
+        width: 70px !important;
+        height: 70px !important;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 999 !important;
+        left: 0;
+        right: 0;
+    }
+
+    .spinner-md-crescent circle {
+        stroke: #fff !important;
+    }
+}

@@ -1,0 +1,9 @@
+page-registered-pet-details {
+    .profileTbl tr:first-child:after {
+        display: none;
+    }
+
+    .profileTbl {
+        margin-top: 0;
+    }
+}

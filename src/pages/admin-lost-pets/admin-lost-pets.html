@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lost Pets</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+  <form action="" class="searchBar">
+      <ion-searchbar
+          [showCancelButton]="shouldShowCancel"
+          (ionInput)="onSearch($event)"
+          (ionCancel)="onCancel($event)"
+          [debounce]="700"
+          placeholder="Search"
+          (ionFocus)="checkFocus()"
+      >
+  </ion-searchbar>
+  </form>
+  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>
+  <div *ngIf="pageLoaded">
+      <p *ngIf="pets?.length == 0" class="noPetResult">No lost pet yet.</p>
+      <div *ngIf="pets?.length">
+          <ion-card *ngFor="let pet of pets">
+              <img [src]="pet?.image != '' && pet?.image != null ? pet?.image : 'assets/images/icon.png'" [class.noImage]="pet?.image == '' || pet?.image == null"/>
+              <ion-card-content>
+                  <ion-card-title>{{pet.name}}</ion-card-title>
+                  <div>
+                      <span class="bold">Place of lost:</span>
+                      <span>{{pet.placeLost}}</span>
+                  </div>
+                  <div>
+                      <span class="bold">Lost date #:</span>
+                      <span>{{pet.lostDate | date:'mediumDate'}}</span>
+                  </div>
+                  <div>
+                    <span class="bold">Status:</span>
+                    <span [class.blue]="pet.status" [class.red]="!pet.status">{{pet.status ? 'Found' : 'Lost'}}</span>
+                  </div>
+                  <button ion-button type="button" class="removeBtn" (click)="action(pet.lostPetId, pet.status)"><ion-icon name="more"></ion-icon></button>
+                  <button ion-button type="submit" class="btnDetails" (click)="lostPetDetails(pet)">More Details</button>
+                  <span class="datePosted">Posted: {{pet.lostDate | date:'mediumDate'}}</span>
+              </ion-card-content>
+          </ion-card>
+      </div>
+  </div>
+  <page-chat-notif-fab></page-chat-notif-fab>
+</ion-content>

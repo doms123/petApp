@@ -1,0 +1,60 @@
+<ion-content #chatArea>
+  <div class="chatHead">
+    <button (click)="back()"><ion-icon name="arrow-back"></ion-icon></button>
+    <h1>{{receiverName}}</h1>
+    <p>{{receiverEmail}}</p>
+    <div class="chatPhoto">
+      <img [src]="receiverPhoto != '' && receiverPhoto != null ? receiverPhoto : 'assets/images/blank-profile.png' " width="45" height="45" alt="">
+    </div>
+  </div>
+  <div class="chatArea">
+  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>
+  <div *ngIf="pageLoaded">
+    <p *ngIf="chats?.length == 0" class="noPetResult">No chat messages yet.</p>
+    <div *ngIf="chats?.length">
+      <div *ngFor="let chat of chats">
+          <div class="leftChat" *ngIf="userName != chat?.name">
+            <div class="pic">
+                <img [src]="chat.photo != '' && chat.photo != null ? chat.photo : 'assets/images/blank-profile.png' " width="40" height="40" alt="">
+            </div>
+            <div class="message">
+              <p *ngIf="!chat?.isPhoto">{{chat?.message}}</p>
+              <p *ngIf="chat?.isPhoto" class="hasPhoto"><img [src]="chat?.message" alt=""></p>
+              <span>{{chat?.dateAdded | date:'MMM d'}}, {{chat?.dateAdded | date:'h:mm a'}}</span>
+            </div>
+          </div>
+          <div class="rightChat" *ngIf="userName == chat?.name">
+            <div class="message">
+              <p *ngIf="!chat?.isPhoto">{{chat?.message}}</p>
+              <p *ngIf="chat?.isPhoto" class="hasPhoto"><img [src]="chat?.message"></p>
+              <span>{{chat?.dateAdded | date:'MMM d'}}, {{chat?.dateAdded | date:'h:mm a'}}</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <!-- <div class="leftChat">
+      <div class="pic">
+          <img src="assets/images/blank-profile.png" width="40" height="40" alt="">
+      </div>
+      <div class="message">
+        <p>Hello doms!</p>
+        <span>10:33 PM</span>
+      </div>
+    </div>
+    <div class="rightChat">
+      <div class="message">
+        <p>Thank you</p>
+        <span>10:35 PM</span>
+      </div>
+    </div> -->
+  </div>
+  <div class="chatFooter">
+    <input type="file" hidden #profilePicUpload name="profilePicUpload" (change)="sendPhoto($event)">
+    <form [formGroup]="chatForm" (ngSubmit)="chatSubmit()">
+      <button type="button" class="camera" (click)="profilePicUpload.click()"><ion-icon name="camera"></ion-icon></button>
+      <input type="text" placeholder="Type your message" formControlName="chatTxt" [(ngModel)]="chatTxt" name="chatTxt">
+      <button type="submit" class="like"><ion-icon name="send"></ion-icon></button>
+    </form>
+  </div>  
+</ion-content>

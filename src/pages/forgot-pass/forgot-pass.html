@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Forgot Password</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="forgotPassForm" (ngSubmit)="forgotPasswordSubmit()">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+
+    <button ion-button class="btnForgotPass" type="submit" [disabled]="isSubmitting">
+      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>
+      <ion-icon name="send" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Send</button>
+  </form>
+</ion-content>

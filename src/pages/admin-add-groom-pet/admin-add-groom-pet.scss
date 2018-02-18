@@ -1,0 +1,42 @@
+page-admin-add-groom-pet {
+    .btnSave {
+        margin: 15px 0 0;
+    }
+
+    .profileBlock {
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .profileBlock .uploadIcon {
+        color: #673AB7;
+        width: 24px;
+        margin: auto;
+        font-size: 26px;
+        margin-right: 3px;
+        position: relative;
+        top: 3px;
+    }
+
+    .profileBlock span {
+        color: #673AB7;
+        text-decoration: underline;
+    }
+    
+    .profileBlock img {
+        border-radius: 50%;
+        border: 1px solid #eee;
+    }
+
+    .toolbar-background {
+        background: #673AB7 !important;
+    }
+
+    .btnSave {
+        background: #673AB7;
+    }
+
+    .item-inner {
+        border-bottom: 1px solid #673AB7 !important;
+    }
+}

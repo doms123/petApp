@@ -1,0 +1,11 @@
+
+
+<ion-tabs color="light-blue">
+  <ion-tab tabIcon="paw" [rootParams]="tabsParam" tabTitle="Pets" [root]="tab1" tabBadgeStyle="danger"></ion-tab>
+  <ion-tab tabIcon="pricetags" tabTitle="Buy &amp; Sell" [rootParams]="tabsParam" [root]="tab2" [tabBadge]="buyAndSellNotifCount > 0 ? buyAndSellNotifCount : null" tabBadgeStyle="danger"></ion-tab>
+  <ion-tab tabIcon="sad" tabTitle="Lost Pets" [root]="tab3" [rootParams]="tabsParam" [tabBadge]="lostPetNotifCount > 0 ? lostPetNotifCount : null" tabBadgeStyle="danger"></ion-tab>
+  <ion-tab tabIcon="apps" tabTitle="Others" [rootParams]="tabsParam" [tabBadge]="gCount > 0 || tCount > 0 || vCount > 0 ? gCount + tCount + vCount : null " tabBadgeStyle="danger" [root]="tab4"></ion-tab>
+</ion-tabs>
+groompetNotifCount: 
+trainpetNotifCount: 
+vaccineSchedNotifCount: 

@@ -1,0 +1,31 @@
+page-edit-vaccination-sched {
+    .btnSave {
+        margin: 15px 0 0;
+    }
+
+    .profileBlock {
+        margin-top: 20px;
+        text-align: center;
+        position: relative;
+    }
+    
+    .profileBlock .camera {
+        position: absolute;
+        color: #fff;
+        width: 24px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 87px;
+        font-size: 26px;
+    }
+    
+    .profileBlock img {
+        border-radius: 50%;
+        border: 1px solid #eee;
+    }
+
+    .toolbar-background, .fab-md, .button-md {
+        background: #00BCD4 !important;
+    }
+}

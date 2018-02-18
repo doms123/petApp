@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password" [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Re-enter Password</ion-label>
+      <ion-input type="password" formControlName="repassword" [(ngModel)]="repassword" name="repassword"></ion-input>
+    </ion-item>
+
+    <p>Don't have an account? <a (click)="goToLoginPage()" class="blue">Sign in</a></p>
+    <button ion-button class="btnRegister" type="submit" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="person-add" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Register</button>
+  </form>
+</ion-content>

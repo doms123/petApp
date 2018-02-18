@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Edit Pet Details
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div class="profileBlock">
+      <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">
+      <img [src]="image != '' && image != null ? image : 'assets/images/icon.png' " width="124" height="124"
+        alt="" (click)="petPicUpload.click()">
+      <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>
+    </div>
+  
+    <form [formGroup]="addForSalePet" (ngSubmit)="addForSalePetSubmit()">
+      <ion-item hidden>
+        <ion-label floating>Image</ion-label>
+        <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Price in Peso</ion-label>
+        <ion-input type="number" formControlName="price" [(ngModel)]="price" name="price"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Pet Type</ion-label>
+        <ion-select formControlName="petType" [(ngModel)]="petType" name="petType">
+          <ion-option value="Dog">Dog</ion-option>
+          <ion-option value="Cat">Cat</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Breed</ion-label>
+        <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Color</ion-label>
+        <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Age</ion-label>
+        <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Gender</ion-label>
+        <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">
+          <ion-option value="Female">Female</ion-option>
+          <ion-option value="Male">Male</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Date of last vaccine</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="vaccineDate" [(ngModel)]="vaccineDate" name="vaccineDate"></ion-datetime>
+      </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Remarks</ion-label>
+          <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>
+        </ion-item>
+    
+      <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">
+        <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>
+        <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>
+    </form>
+  </ion-content>
+  

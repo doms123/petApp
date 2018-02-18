@@ -1,0 +1,28 @@
+page-edit-train-pet {
+    .btnSave {
+        margin: 15px 0 0;
+    }
+
+    .profileBlock {
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .profileBlock .uploadIcon {
+        width: 24px;
+        margin: auto;
+        font-size: 26px;
+        margin-right: 3px;
+        position: relative;
+        top: 3px;
+    }
+
+    .profileBlock span {
+        text-decoration: underline;
+    }
+    
+    .profileBlock img {
+        border-radius: 50%;
+        border: 1px solid #eee;
+    }
+}

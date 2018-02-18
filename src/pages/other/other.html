@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="goToPage('ProfilePage')">
+      <ion-icon name="person" class="preIcon"></ion-icon> &nbsp;
+      <span class="listName">Profile</span>
+      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>
+    </button>
+    <button ion-item (click)="goToPage('VaccinationSchedulePage')">
+      <ion-icon name="calendar" class="preIcon"></ion-icon> &nbsp;
+      <span class="listName">Vaccination Schedules</span>
+      <ion-badge color="danger" *ngIf="vCount">{{vCount}}</ion-badge>
+      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>
+    </button>
+    <button ion-item (click)="goToPage('AdminTrainPetPage')">
+      <ion-icon name="help-buoy" class="preIcon"></ion-icon> &nbsp;<span class="listName">Train Your Pet</span>
+      <ion-badge color="danger" *ngIf="tCount">{{tCount}}</ion-badge>
+      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>
+    </button>
+    <button ion-item (click)="goToPage('AdminGroomPetPage')">
+      <ion-icon name="shirt" class="preIcon"></ion-icon> &nbsp;
+      <span class="listName">Groom Pet</span>
+      <ion-badge color="danger" *ngIf="gCount">{{gCount}}</ion-badge>
+      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>
+    </button>
+    <button ion-item (click)="goToPage('SearchvetPage')">
+      <ion-icon name="search" class="preIcon"></ion-icon> &nbsp;<span class="listName">Find Vet Clinics</span>
+      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>
+    </button>
+    <button ion-item (click)="switchRole()" *ngIf="isAdmin">
+      <ion-icon name="switch" class="preIcon"></ion-icon> &nbsp;
+      <span class="listName">Switch to admin</span>
+    </button>
+    <button ion-item (click)="logout()">
+      <ion-icon name="log-out" class="preIcon"></ion-icon> &nbsp;
+      <span class="listName">Log out</span>
+    </button>
+  </ion-list>
+
+  <page-chat-notif-fab></page-chat-notif-fab>
+</ion-content>

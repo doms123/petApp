@@ -1,0 +1,56 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Profile</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<div class="profileBlock">
+    <input type="file" hidden #profilePicUpload name="profilePicUpload" (change)="profileChange($event)">
+    <img [src]="user?.photo != '' && user?.photo != null ? user?.photo : 'assets/images/blank-profile.png' " width="124" height="124" alt="" (click)="profilePicUpload.click()">
+    <ion-icon name="camera" class="camera" (click)="profilePicUpload.click()"></ion-icon>
+    
+    <h3 *ngIf="user?.name != '' || user?.name != null">{{user?.name}}</h3>
+    <h3 *ngIf="user?.name == '' || user?.name == null">N/A</h3>
+    </div>
+    
+    <table class="profileTbl">
+        <tr>
+            <td><ion-icon name="mail"></ion-icon></td>
+            <td>
+                <strong>Email Address</strong>
+                <p *ngIf="user?.email != '' && user?.email != null">{{user?.email}}</p>
+                <p *ngIf="user?.email == '' || user?.email == null">N/A</p>
+            </td>
+        </tr>
+        <tr>
+            <td><ion-icon name="call"></ion-icon></td>
+            <td>
+                <strong>Phone Number</strong>
+                <p *ngIf="user?.phone != '' && user?.phone != null">{{user?.phone}}</p>
+                <p *ngIf="user?.phone == '' || user?.phone == null">N/A</p>
+            </td>
+        </tr>
+        <tr>
+            <td><ion-icon name="locate"></ion-icon></td>
+            <td>
+                <strong>Address</strong>
+                <p *ngIf="user?.address != '' && user?.address != null">{{user?.address}}</p>
+                <p *ngIf="user?.address == '' || user?.address == null">N/A</p>
+            </td>
+        </tr>
+        <tr>
+            <td><ion-icon name="paw"></ion-icon></td>
+            <td>
+                <strong (click)="registeredPetsClick()">Registered Pets</strong>
+                <p (click)="registeredPetsClick()">Click to see registered pets</p>
+            </td>
+        </tr>
+    </table>
+    
+    <ion-fab bottom right (click)="editProfile()">
+        <button ion-fab><ion-icon name="create"></ion-icon></button>
+    </ion-fab>
+</ion-content>

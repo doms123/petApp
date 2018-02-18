@@ -1,0 +1,33 @@
+<ion-header [class.admin]="isAdmin == 1">
+
+  <ion-navbar>
+    <ion-title>Groom Pet Videos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding [class.admin]="isAdmin == 1">
+  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>
+  <div *ngIf="pageLoaded">
+    <p *ngIf="videos?.length == 0" class="noPetResult">No groom pet video yet.</p>
+      <div *ngIf="videos?.length">
+        <div class="videoPlayList" *ngFor="let video of videos">
+          <h5>{{video?.title}}</h5>
+          <video width="100%" controls poster="assets/images/icon.png">
+            <source src="{{video?.video}}" type="video/mp4">
+            <source src="{{video?.video}}" type="video/ogg"> Your browser does not support HTML5 video.
+          </video>
+          <button ion-button type="button" *ngIf="isAdmin == '1'" class="listBtn" (click)="action(video.videoId)">
+            <ion-icon name="more"></ion-icon>
+          </button>
+          <span class="datePosted">Posted: {{video.datePosted | date:'mediumDate'}}</span>
+        </div>
+      </div>
+    <ion-fab bottom right *ngIf="isAdmin == 1">
+      <button ion-fab (click)="addGroomPetVideos()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
+</ion-content>

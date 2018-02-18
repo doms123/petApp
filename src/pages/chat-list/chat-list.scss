@@ -1,0 +1,126 @@
+page-chat-list {
+    .chatList .chatBlock01 {
+        position: relative;
+        width: 60px;
+        height: 50px;
+        float: left;
+    }
+    
+    .chatList li {
+        overflow: hidden;
+        padding: 10px 12px;
+        border-top: 1px solid rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .chatList .chatBlock01 i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        border: 2px solid #fff;
+    }
+    
+    .chatList .chatBlock01 img {
+        border-radius: 50%;
+    }
+    
+    .chatList .chatBlock02 {
+        width: calc(100% - 70px);
+        float: left;
+        position: relative;
+        padding-top: 5px;
+    }
+    
+    .chatList .chatBlock02 strong,  
+    .chatList .chatBlock02 span {
+        white-space: nowrap;
+        width: calc(100% - 20px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        color: #333;
+    }
+    
+    .chatList .chatBlock02 strong {
+        width: calc(100% - 50px);
+    }
+    
+    .chatList .chatBlock02 button {
+        position: absolute;
+        right: -10px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        height: 24px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    
+    .chatList .chatBlock02 button i,
+    .chatList .chatBlock02 strong {
+        color: #3f51b5;
+    }
+    
+    .chatList .chatBlock02 .chatDate {
+        position: absolute;
+        right: -10px;
+        display: inline-block;
+        width: auto;
+        font-size: 11px;
+        top: 8px;
+    }
+
+    .chatList {
+        padding: 0;
+        margin: 0;
+    }
+
+    .searchbar-md {
+        padding: 14px;
+    }
+
+    .pageLoader {
+        width: 70px !important;
+        height: 70px !important;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 999 !important;
+        left: 0;
+        right: 0;
+    }
+
+    .spinner-md-crescent circle {
+        stroke: #4080ff !important;
+    }
+
+    .noChat {
+        padding: 0 14px;
+    }
+
+    .chatList .chatBlock02 strong {
+        font-weight: normal;
+    }
+
+    .unread .chatBlock02 strong,
+    .unread span {
+        font-weight: bold;
+    }
+
+    .chatBlock01 ion-badge {
+        font-size: 9px;
+        padding: 4px;
+        border-radius: 3px;
+        position: absolute;
+        right: 8px;
+        bottom: 0;
+        line-height: 1.4;
+        height: 18px;
+    }
+}

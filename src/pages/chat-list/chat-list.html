@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Chats</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form action="" class="searchBar">
+      <ion-searchbar
+          [showCancelButton]="shouldShowCancel"
+          (ionInput)="onSearch($event)"
+          (ionCancel)="onCancel($event)"
+          [debounce]="700"
+          placeholder="Search Name"
+      >
+      </ion-searchbar>
+  </form>
+  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>
+  <div *ngIf="pageLoaded">
+    <p *ngIf="chatLists?.length == 0" class="noChat">No chat messages yet.</p>
+    <ul class="chatList" *ngIf="chatLists?.length">
+      <li *ngFor="let chat of chatLists" (click)="openChatSingle(chat?.chatId)" [class.unread]="chat?.isRead == 0 && chat?.userEmailName != userEmailName">
+        <div class="chatBlock01">
+          <img [src]="chat?.userPhoto != '' && chat?.userPhoto != null ? chat?.userPhoto : 'assets/images/blank-profile.png' " width="50" height="50" alt="">
+          <ion-badge color="danger" *ngIf="chat?.unreadCount">{{chat?.unreadCount}}</ion-badge>
+        </div>
+        <div class="chatBlock02">
+          <strong *ngIf="chat?.userEmailName != userEmailName">{{chat?.name}}</strong>
+          <strong *ngIf="chat?.userEmailName == userEmailName">{{chat?.otherName}}</strong>
+          <span *ngIf="chat?.userEmailName != userEmailName" class="lastChat">{{chat?.message.indexOf('https://firebasestorage') != -1 ? 'Sent photo' : chat?.message}}</span>
+          <span *ngIf="chat?.userEmailName == userEmailName" class="lastChat">You: {{chat?.message.indexOf('https://firebasestorage') != -1 ? 'Sent photo' : chat?.message}}</span>
+          <span class="chatDate">{{chat?.dateAdded | date:'MMM d'}}, {{chat?.dateAdded | date:'h:mm a'}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ion-content>

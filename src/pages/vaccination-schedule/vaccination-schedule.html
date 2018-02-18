@@ -1,0 +1,42 @@
+<ion-header [class.admin]="isAdmin == 1">
+
+  <ion-navbar>
+    <ion-title>Vaccination Schedules</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page" [class.admin]="isAdmin == 1">
+  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>
+  <div *ngIf="pageLoaded">
+    <p *ngIf="posts?.length == 0" class="noResult">No vaccination schedule posted yet.</p>
+    <div *ngIf="posts?.length">
+      <ion-card *ngFor="let post of posts">
+        <img [src]="post?.image != '' && post?.image != null ? post?.image : 'assets/images/icon.png'" [class.noImage]="post?.image == '' || post?.image == null"
+        />
+        <ion-card-content>
+          <ion-card-title>{{post.title}}
+          </ion-card-title>
+          <div>
+            <span class="bold">Notes:</span>
+            <span>{{post.notes}}</span>
+          </div>
+          <div>
+            <span class="bold">Vaccination Date:</span>
+            <span>{{post.vaccineDate | date:'mediumDate'}}</span>
+          </div>
+          <button ion-button type="button" *ngIf="isAdmin == '1'" class="removeBtn" (click)="action(post.postId)">
+            <ion-icon name="more"></ion-icon>
+          </button>
+          <span class="datePosted">Posted: {{post.datePosted | date:'mediumDate'}}</span>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <ion-fab bottom right *ngIf="isAdmin == '1'">
+    <button ion-fab (click)="addVaccinationSched()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

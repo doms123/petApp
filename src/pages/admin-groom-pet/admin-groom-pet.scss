@@ -1,0 +1,56 @@
+page-admin-groom-pet {
+    .toolbar-background, .fab-md, .button-md {
+        background: #4080ff !important;
+    }
+
+    .admin .toolbar-background, .admin .fab-md, .admin .button-md {
+        background: #673AB7 !important;
+    }
+
+    .videoPlayList {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+        padding: 20px 12px 12px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .videoPlayList h5 {
+        margin-bottom: 20px;
+    }
+
+    .videoPlayList button ion-icon {
+        color: #fff;
+    }
+
+    .listBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        right: 7px;
+        top: 6px;
+        font-size: 20px;
+        padding: 5px 10px;
+        height: auto;
+    }
+
+    .pageLoader {
+        width: 70px !important;
+        height: 70px !important;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 999 !important;
+        left: 0;
+        right: 0;
+    }
+
+    .spinner-md-crescent circle {
+        stroke: #4080ff !important;
+    }
+
+    .admin .spinner-md-crescent circle {
+        stroke: #673AB7 !important;
+    }
+}

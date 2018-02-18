@@ -1,0 +1,190 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.ion-page > ion-content {
+    background: #fff;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+ion-item {
+    padding-left: 0 !important;
+    background: #fff !important;
+}
+
+.item-inner {
+    border-bottom: 1px solid #488aff !important;
+}
+
+.toolbar-title,
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #488aff !important;
+}
+
+.blue {
+    color: #488aff !important;
+}
+
+
+.tabs-ios .tabbar {
+    background: #488aff !important;
+    padding: 7px 0 !important;
+}
+
+.tabs-ios .tab-button-icon,
+.tabs-ios .tab-button {
+    color: rgba(255, 255, 255, 0.7) !important; 
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon,
+.tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true] {
+    color: #fff !important;
+}
+
+ion-card-content {
+    padding: 10px 10px 35px !important;
+}
+
+ion-fab[bottom] {
+    bottom: 20px;
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: #42b72a !important;
+    -webkit-box-shadow: inset 0 -1px 0 0 #42b72a !important;
+    box-shadow: inset 0 -1px 0 0 #32db64 !important;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: #f53d3d !important;
+    -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d !important;
+    box-shadow: inset 0 -1px 0 0 #f53d3d !important;
+}
+
+.profileTbl {
+    margin-top: 10px;
+}
+
+.profileTbl tr td:nth-child(1) i {
+    font-size: 22px;
+    color: #4080ff;
+}
+
+.profileTbl tr td:nth-child(1) {
+    width: 50px;
+    text-align: center;
+}
+
+.profileTbl tr td:nth-child(2) {
+    padding-top: 6px;
+}
+
+.profileTbl tr td:nth-child(2) strong {
+    color: #4080ff;
+    font-size: 14px;
+}
+
+.profileTbl tr {
+    position: relative;
+}
+
+.profileTbl tr:after {
+    width: 100%;
+    height: 1px;
+    background:rgba(0, 0, 0, 0.15);
+    right: 0;
+    left: 0;
+    content: "";
+    position: absolute;
+}
+
+.profileTbl tr td:nth-child(2) p {
+    display: inline-block;
+    width: calc(100% - 15px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #333;
+    font-size: 13px;
+    margin: 0;
+}
+
+.profileTbl ion-icon {
+    font-size: 22px !important;
+}
+
+.toolbar-background {
+    background: #4080ff !important; 
+}
+
+.toolbar-title, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+}
+
+.noImage {
+    text-align: center !important;
+    margin: 20px auto !important;
+    width: 200px !important;
+}
+
+.logout {
+    background: #E91E63;
+}
+
+.action-sheet-md .action-sheet-icon {
+    margin: 0 15px 0 0 !important;
+}
+
+ion-spinner {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+ion-fab {
+    position: fixed !important;
+}
+
+.sold {
+    width: 120px;
+    position: absolute;
+    top: 100px;
+    height: 91px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.chatBoxFab ion-badge,
+.notifBoxFab ion-badge {
+    position: absolute;
+    top: 10px;
+    background: #f53d3d;
+    font-size: 10px;
+    padding: 4px;
+    right: 10px;
+    border-radius: 0;
+    line-height: 1.4;
+    height: 19px;
+    border-radius: 3px;
+}
+
+.notifBoxFab ion-fab[bottom] {
+    bottom: 169px;
+}
+
+
