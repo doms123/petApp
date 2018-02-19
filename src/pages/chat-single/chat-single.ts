@@ -42,7 +42,8 @@ export class ChatSinglePage {
 
     this.userEmail = localStorage.getItem('email');
     this.userId = localStorage.getItem('userId');
-    this.userEmailName = localStorage.getItem('email').split('@')[0].replace('.','');
+    this.userEmailName = localStorage.getItem('email').split('@')[0].replace('.','').toLowerCase();
+    console.log('this.userEmailName', this.userEmailName);
     this.getChatReceiverInfo(this.navParams.data['uid']);
     this.scrollToBottom();
     
@@ -56,7 +57,8 @@ export class ChatSinglePage {
     this.db.collection('chats').doc(this.chatId).collection('messages').get().then(res => {
       let unreadCount = 0;
       let data = res.docs.filter(messageData => {
-        return messageData.data().userEmailName != this.userEmailName
+        console.log('wwwwww', messageData.data().userEmailName);
+        return messageData.data().userEmailName.toLowerCase() != this.userEmailName
       }).map(filterData => {
         unreadCount++;
         
@@ -119,12 +121,13 @@ export class ChatSinglePage {
   getChatReceiverInfo(uid) {
     this.db.collection('users').doc(uid).get().then(res => {
       let receiver = res.data();
-      this.receiverEmail = receiver.email;
+      this.receiverEmail = receiver.email.toLowerCase();
       this.receiverName = receiver.name;
+      console.log('this.receiverName', this.receiverName);
       this.receiverPhoto = receiver.photo;
       let senderName = this.userEmail.split('@')[0].replace('.','');
-      let receiverName = this.receiverEmail.split('@')[0].replace('.','');
-      this.chatId = senderName < receiverName ? senderName+'-'+receiverName : receiverName+'-'+senderName;
+      let recName = this.receiverEmail.split('@')[0].replace('.','');
+      this.chatId = senderName < recName ? senderName+'-'+recName : recName+'-'+senderName;
       this.loadChatConversation();
       this.markAsRead();
     }).catch(err => {
@@ -169,8 +172,8 @@ export class ChatSinglePage {
         docId: this.chatId
       });
 
-      let receiverEmail = this.receiverEmail.split('@')[0].replace('.','');
-      let notifRef = firebase.database().ref(`notif/chats/${receiverEmail}`);
+      let receiverEmailName = this.receiverEmail.split('@')[0].replace('.','').toLowerCase();
+      let notifRef = firebase.database().ref(`notif/chats/${receiverEmailName}`);
       notifRef.once('value', snapshot => {
         console.log('firing')
         if(snapshot.hasChild('unread')) {

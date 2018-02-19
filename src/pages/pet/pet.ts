@@ -52,7 +52,7 @@ export class PetPage {
     this.pageLoaded = false;
     let val = ev.target.value;
 
-    this.db.collection('buypets').orderBy("datePosted", "desc").limit(1000).onSnapshot(snapshots => {
+    this.db.collection('buypets').where("isactive", "==", true).orderBy("datePosted", "desc").limit(1000).onSnapshot(snapshots => {
       console.log('snapshots', snapshots);
       let pets = [];
       snapshots.forEach(doc => {
@@ -96,7 +96,7 @@ export class PetPage {
   }
 
   getItems() {
-    this.db.collection('buypets').orderBy("datePosted", "desc").onSnapshot(snapshots => {
+    this.db.collection('buypets').where("isactive", "==", true).orderBy("datePosted", "desc").onSnapshot(snapshots => {
       console.log('snapshots', snapshots);
       let pets = [];
       snapshots.forEach(doc => {
@@ -160,7 +160,7 @@ export class PetPage {
             });
 
             let toast = this.toastCtrl.create({
-              message: 'Post was updated',
+              message: 'Post was deleted',
               duration: 5000,
               position: 'bottom'
             });

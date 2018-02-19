@@ -172,7 +172,8 @@ export class AddForSalePetPage {
             }
 
             html += '</ul>';
-            
+            // We have analyzed your uploaded image, to help you describe the pet photo the you have uploaded, here’s our prediction.
+            // PREDICTED CONCEPT          PROBABILITY
             let alert = this.alertCtrl.create({
               title: 'Pet photo info.',
               subTitle: html,

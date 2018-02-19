@@ -64,7 +64,7 @@ export class LoginPage {
             this.isSubmitting = false;
             this.userId = user['uid'];
             localStorage.setItem('userId', user['uid']);
-            localStorage.setItem('email', user['email']);
+            localStorage.setItem('email', user['email'].toLowerCase());
             this.authProvider.loadProfile(user['uid']).then(res => {
               localStorage.setItem('isAdmin', res['isAdmin']);
               localStorage.setItem('adminSwitchUser', res['adminSwitchUser']);
