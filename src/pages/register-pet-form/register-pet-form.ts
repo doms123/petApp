@@ -99,7 +99,9 @@ export class RegisterPetFormPage {
 
           if (isValid) {
             console.log('tagArray', tagArray);
-            let html = '<ul class="predictUl">';
+            let html = "We have analyzed your uploaded image, to help you describe the pet photo the you have uploaded, here’s our prediction.";
+            html += '<ul class="predictUl">';
+            html += '<li><span class="title01">PREDICTED CONCEPT</span><span class="title02">PROBABILITY</span></li>'
 
             for (var other = 0; other < tagArray.length; other++) {
               if(other < 10) {
@@ -110,7 +112,7 @@ export class RegisterPetFormPage {
             html += '</ul>';
             
             let alert = this.alertCtrl.create({
-              title: 'Pet photo info.',
+              title: '',
               subTitle: html,
               buttons: ['OK']
             });
