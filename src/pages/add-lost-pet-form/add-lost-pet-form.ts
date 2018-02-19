@@ -108,7 +108,7 @@ export class AddLostPetFormPage {
 
           if (isValid) {
             console.log('tagArray', tagArray);
-            let html = "We have analyzed your uploaded image, to help you describe the pet photo the you have uploaded, here’s our prediction.";
+            let html = "We have analyzed your uploaded image, to help you describe the pet photo that you have uploaded, here’s our prediction.";
             html += '<ul class="predictUl">';
             html += '<li><span class="title01">PREDICTED CONCEPT</span><span class="title02">PROBABILITY</span></li>'
 
